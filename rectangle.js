@@ -12,8 +12,12 @@ $(function(){
 
         var p = 2*(w+h),
             a = w*h;
-
-        $perimeter.val(p);
-        $area.val(a);
+     
+        $perimeter.val(roundFractional(p,2));
+        $area.val(roundFractional(a,2));
     });
 });
+
+function roundFractional(x, n) {
+    return Math.round(x * Math.pow(10, n)) / Math.pow(10, n);
+}
