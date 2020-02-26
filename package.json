@@ -2,16 +2,20 @@
   "name": "grunt-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "grunt": "^1.0.4",
-    "grunt-contrib-less": "^2.0.0"
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
   },
-  "devDependencies": {
+  "dependencies": {
+    "chai": "^4.2.0",
     "grunt-contrib-csslint": "^2.0.0"
   },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^7.0.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
