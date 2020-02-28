@@ -13,8 +13,10 @@ $(function(){
         a = w*h;
   
   
-    $perimeter.val(roundFractional(p,2));
-   $area.val(roundFractional(a,2));
+    var react = retangle();
+
+    $perimeter.val(react.perimeter(w,h));
+   $area.val(react.area(w,h));
 
   });
 });
