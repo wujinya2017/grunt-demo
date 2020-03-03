@@ -1,15 +1,12 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    csslint: {
-      options: {
-        csslintrc: './.csslintrc'
-      },
-      src: ['*.css']
+    cssmin: {  
+      'rectangle.min.css': 'rectangle.css'
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('default', ['csslint']);
+  grunt.registerTask('default', ['cssmin']); 
 };
-
+ 
