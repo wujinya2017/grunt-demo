@@ -1,15 +1,18 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    csslint: {
+    htmlmin: {
       options: {
-        csslintrc: './.csslintrc'
+        collapseWhitespace: true,
+        preserveLineBreaks: false
       },
-      src: ['*.css']
+      files: {
+        src: './index.html',
+        dest: 'dist/index.html'
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  grunt.registerTask('default', ['csslint']);
+  grunt.registerTask('default', ['htmlmin']); 
 };
-
