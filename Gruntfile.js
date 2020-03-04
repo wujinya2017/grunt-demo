@@ -1,16 +1,36 @@
 
 module.exports = function (grunt) {
   grunt.initConfig({
-    uglify: {
-      release:{
-        files: {
-          'js/jquery.min.js': 'js/jquery.js'
+    mochacli: {
+      options: {
+        reporter: 'spec',
+        bail: true
+      },
+      all: ['test/*.js']
+    },
+    mocha_istanbul: {
+      coverage: {
+        src: 'test'
+      }
+    },
+    istanbul_check_coverage: {
+      default: {
+        options: {
+          coverageFolder: 'coverage*',
+          check: {
+            lines: 90,
+            statements: 90
+          }
         }
-      }       
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-mocha-cli');
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
 
-  grunt.registerTask('default', ['uglify:release']);
+  grunt.registerTask('default', ['mochacli']);
+  grunt.registerTask('cover', ['mocha_istanbul']);
+  grunt.registerTask('cover-check', ['istanbul_check_coverage']);
 };
+
